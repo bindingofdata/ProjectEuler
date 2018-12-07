@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _0007_10001st_Prime
 {
-	class Program
+    class Program
 	{
 		static void Main(string[] args)
 		{
@@ -26,7 +22,7 @@ namespace _0007_10001st_Prime
 
 			while (currentPrime < nthPrime)
 			{
-				if (isPrimeNumber(workingNumber))
+				if (IsPrimeNumber(workingNumber))
 				{
 					currentPrime += 1;
 					if (currentPrime == nthPrime)
@@ -43,7 +39,7 @@ namespace _0007_10001st_Prime
 			Console.ReadLine();
 		}
 
-		static public bool isPrimeNumber(long number)
+		static public bool IsPrimeNumber(long number)
 		{
 			if (number % 2 == 0)
 			{

@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _0011_Largest_Product_in_a_Grid
 {
-	class Program
+    class Program
 	{
 		static void Main ( string[] args )
 		{
@@ -91,7 +87,7 @@ namespace _0011_Largest_Product_in_a_Grid
 			{
 				for ( int j = 0; j < 20; j++ )
 				{
-					currentProduct = getHorizontal( ref numberGrid, i, j );
+					currentProduct = GetHorizontal( ref numberGrid, i, j );
 					if ( currentProduct > largestProduct )
 					{
 						largestProduct = currentProduct;
@@ -114,25 +110,25 @@ namespace _0011_Largest_Product_in_a_Grid
 			int largestProduct = 0;
 			int testProduct = 0;
 
-			testProduct = getHorizontal( ref numberArray, i, j );
+			testProduct = GetHorizontal( ref numberArray, i, j );
 			if ( testProduct > largestProduct )
 			{
 				largestProduct = testProduct;
 			}
 
-			testProduct = getVeritcal( ref numberArray, i, j );
+			testProduct = GetVeritcal( ref numberArray, i, j );
 			if ( testProduct > largestProduct )
 			{
 				largestProduct = testProduct;
 			}
 
-			testProduct = getDiagonal( ref numberArray, i, j, true );
+			testProduct = GetDiagonal( ref numberArray, i, j, true );
 			if ( testProduct > largestProduct )
 			{
 				largestProduct = testProduct;
 			}
 
-			testProduct = getDiagonal( ref numberArray, i, j, false );
+			testProduct = GetDiagonal( ref numberArray, i, j, false );
 			if ( testProduct > largestProduct )
 			{
 				largestProduct = testProduct;
@@ -141,7 +137,7 @@ namespace _0011_Largest_Product_in_a_Grid
 			return largestProduct;
 		}
 
-		private static int getHorizontal( ref int[,] numberArray, int i, int j )
+		private static int GetHorizontal( ref int[,] numberArray, int i, int j )
 		{
 			int product = numberArray[i,j];
 
@@ -161,7 +157,7 @@ namespace _0011_Largest_Product_in_a_Grid
 			return product;
 		}
 
-		private static int getVeritcal( ref int[,] numberArray, int i, int j )
+		private static int GetVeritcal( ref int[,] numberArray, int i, int j )
 		{
 			int product = numberArray[i, j];
 
@@ -181,7 +177,7 @@ namespace _0011_Largest_Product_in_a_Grid
 			return product;
 		}
 
-		private static int getDiagonal( ref int[,] numberArray, int i, int j, bool toTheLeft )
+		private static int GetDiagonal( ref int[,] numberArray, int i, int j, bool toTheLeft )
 		{
 			int product = numberArray[i, j];
 

@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using StaticClasses;
 
 namespace _0003_Largest_Prime_Factor
 {
-	class Program
+    class Program
 	{
 		static void Main(string[] args)
 		{
@@ -24,7 +21,6 @@ namespace _0003_Largest_Prime_Factor
 			uint original = (uint)Convert.ToInt64(Console.ReadLine());
 			uint factor = original;
 			uint largest = 0;
-			uint previousFactor = 0;
 
 			// Store all primes up to half the supplied number
 			uint[] primes = Primes.GetPrimes( original / 2 );

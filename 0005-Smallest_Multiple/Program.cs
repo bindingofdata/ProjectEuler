@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _0005_Smallest_Multiple
 {
-	class Program
+    class Program
 	{
 		static void Main(string[] args)
 		{
@@ -23,7 +19,7 @@ namespace _0005_Smallest_Multiple
 
 			for (int i = maxFactor * 2; i < MAX; i+= maxFactor)
 			{
-				if (isSmallestCommonFactor(maxFactor, i))
+				if (IsSmallestCommonFactor(maxFactor, i))
 				{
 					Console.WriteLine("The smallest common factor of all numbers below {0} is {1}", maxFactor, i);
 					break;
@@ -33,7 +29,7 @@ namespace _0005_Smallest_Multiple
 			Console.ReadLine();
 		}
 
-		public static bool isSmallestCommonFactor(int maxFactor, int currentNumber)
+		public static bool IsSmallestCommonFactor(int maxFactor, int currentNumber)
 		{
 			for (int i = 2; i <= maxFactor; i++)
 			{

@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _0006_Sum_Square_Difference
 {
-	class Program
+    class Program
 	{
 		static void Main(string[] args)
 		{
@@ -31,8 +27,8 @@ namespace _0006_Sum_Square_Difference
 			Console.Write("Enter the maximum Natural Number you want to use: ");
 			maxNumber = Int32.Parse(Console.ReadLine());
 
-			sumOfSquareTotal = sumOfSquares(maxNumber);
-			squareOfSumTotal = squareOfSum(maxNumber);
+			sumOfSquareTotal = SumOfSquares(maxNumber);
+			squareOfSumTotal = SquareOfSum(maxNumber);
 			difference = squareOfSumTotal - sumOfSquareTotal;
 
 			Console.WriteLine();
@@ -43,7 +39,7 @@ namespace _0006_Sum_Square_Difference
 			Console.ReadLine();
 		}
 
-		public static int sumOfSquares(int maxInt)
+		public static int SumOfSquares(int maxInt)
 		{
 			int total = 0;
 			for (int i = 1; i <= maxInt; i++)
@@ -54,7 +50,7 @@ namespace _0006_Sum_Square_Difference
 			return total;
 		}
 
-		public static int squareOfSum(int maxInt)
+		public static int SquareOfSum(int maxInt)
 		{
 			int total = 0;
 			for (int i = 1; i <= maxInt; i++)

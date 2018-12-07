@@ -88,7 +88,7 @@ namespace _0010_Summation_of_Primes
 			// we only need to test odd numbers, so we don't even loop through even ones.
 			for ( uint i = 3; i <= number; i += 2 )
 			{
-				if ( isPrimeNumber( i, primeNumbers ) )
+				if ( IsPrimeNumber( i, primeNumbers ) )
 				{
 					primeNumbers.Add( i );
 					//Console.WriteLine( "Added " + i + " to the list of Primes" );
@@ -106,7 +106,7 @@ namespace _0010_Summation_of_Primes
 
 		}
 
-		static public bool isPrimeNumber( uint number, List<uint> primeNumbers)
+		static public bool IsPrimeNumber( uint number, List<uint> primeNumbers)
 		{
 			// This takes ~9 minutes and 14 seconds to run.
 			//for ( long j = 3; j < number / 2; j += 2 )

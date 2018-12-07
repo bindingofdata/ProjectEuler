@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _0004_Largest_Palindrome_Product
 {
-	class Program
+    class Program
 	{
 		static void Main(string[] args)
 		{
@@ -32,13 +28,13 @@ namespace _0004_Largest_Palindrome_Product
 
 
 			//calculate the largest possible number to start at
-			largestProduct = calculateLargestProduct(numberOfDigits);
+			largestProduct = CalculateLargestProduct(numberOfDigits);
 
 			for (long i = largestProduct; i >= largestProduct / 2; i--)
 			{
-				if (isPalindrome(i))
+				if (IsPalindrome(i))
 				{
-					if (hasWholeBases(numberOfDigits, i))
+					if (HasWholeBases(numberOfDigits, i))
 					{
 						//Console.Clear();
 						Console.WriteLine("The largest palindromic product of two {0} digit numbers is {1}", numberOfDigits, i);
@@ -53,10 +49,10 @@ namespace _0004_Largest_Palindrome_Product
 			Console.ReadLine();
 		}
 
-		public static bool hasWholeBases(int digits, long product)
+		public static bool HasWholeBases(int digits, long product)
 		{
-			int maxBase = createMaxBase(digits);
-			int minBase = createMinBase(digits);
+			int maxBase = CreateMaxBase(digits);
+			int minBase = CreateMinBase(digits);
 
 			for (int i = maxBase; i >= minBase; i--)
 			{
@@ -74,13 +70,13 @@ namespace _0004_Largest_Palindrome_Product
 			return false;
 		}
 
-		public static long calculateLargestProduct(int digits)
+		public static long CalculateLargestProduct(int digits)
 		{
-			int baseNumber = createMaxBase(digits);
+			int baseNumber = CreateMaxBase(digits);
 			return baseNumber * baseNumber;
 		}
 
-		public static int createMaxBase(int digits)
+		public static int CreateMaxBase(int digits)
 		{
 			string numberHolder = "";
 
@@ -92,7 +88,7 @@ namespace _0004_Largest_Palindrome_Product
 			return Int32.Parse(numberHolder);
 		}
 
-		public static int createMinBase(int digits)
+		public static int CreateMinBase(int digits)
 		{
 			string numberHolder = "1";
 
@@ -104,10 +100,10 @@ namespace _0004_Largest_Palindrome_Product
 			return Int32.Parse(numberHolder);
 		}
 
-		public static bool isPalindrome(long number)
+		public static bool IsPalindrome(long number)
 		{
 			bool isPalindrom = false;
-			long reversedNumber = reverseNumber(number);
+			long reversedNumber = ReverseNumber(number);
 
 			if (number == reversedNumber)
 			{
@@ -117,7 +113,7 @@ namespace _0004_Largest_Palindrome_Product
 			return isPalindrom;
 		}
 
-		public static long reverseNumber(long number)
+		public static long ReverseNumber(long number)
 		{
 			string numberString = number.ToString();
 			string reversedString = "";

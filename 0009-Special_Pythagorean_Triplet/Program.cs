@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _0009_Special_Pythagorean_Triplet
 {
-	class Program
+    class Program
 	{
 		static void Main(string[] args)
 		{
@@ -33,7 +29,7 @@ namespace _0009_Special_Pythagorean_Triplet
 			{
 				for (int j = seed2; j < (int)maxTripletSum / 2; j++)
 				{
-					c = calculateC(i, j);
+					c = CalculateC(i, j);
 
 					if (c != 0)
 					{
@@ -62,7 +58,7 @@ namespace _0009_Special_Pythagorean_Triplet
 			Console.ReadLine();
 		}
 
-		public static bool isTriplet(int c)
+		public static bool IsTriplet(int c)
 		{
 			if (Math.Sqrt(c) % 1 == 0)
 			{
@@ -72,10 +68,10 @@ namespace _0009_Special_Pythagorean_Triplet
 			return false;
 		}
 
-		public static int calculateC(int seed1, int seed2)
+		public static int CalculateC(int seed1, int seed2)
 		{
 			int c = (seed1 * seed1) + (seed2 * seed2);
-			if (isTriplet(c))
+			if (IsTriplet(c))
 			{
 				return (int) Math.Sqrt(c);
 			}

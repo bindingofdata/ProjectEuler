@@ -36,7 +36,7 @@ namespace Tester
 			}
 			timer.Stop();
 
-			Console.WriteLine("")
+			Console.WriteLine("");
 
 			Console.ReadLine();
 		}

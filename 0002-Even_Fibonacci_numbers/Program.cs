@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 using StaticClasses;
 
 namespace _0002_Even_Fibonacci_numbers
 {
-	class Program
+    class Program
 	{
 		static void Main(string[] args)
 		{

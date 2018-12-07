@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StaticClasses
 {
-	public static class Sequences
+    public static class Sequences
 	{
 
 		#region Fibonacci
