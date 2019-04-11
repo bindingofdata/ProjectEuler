@@ -9,7 +9,7 @@ using StaticClasses;
 
 namespace _0012_Highly_Divisible_Triangle_Number
 {
-	class Program
+	internal static class Program
 	{
 		static void Main ( string[] args )
 		{
@@ -40,14 +40,11 @@ namespace _0012_Highly_Divisible_Triangle_Number
 			Console.WriteLine( "--------------------------------------------------------------------------------" );
 			Console.WriteLine();
 			Console.Write( "How many divisors do you want? " );
-			uint divisorsWanted = uint.Parse( Console.ReadLine() );
-			uint triangularNumber = 3;
-			uint triangularNumberValue = 0;
-			uint divisors = 0;
-			bool hasRequiredDivisors = false;
-			uint mostDivisors = 0;
-
-
+			int divisorsWanted = int.Parse( Console.ReadLine() );
+            int triangularNumber = 3;
+            int triangularNumberValue = 0;
+            bool hasRequiredDivisors = false;
+            int mostDivisors = 0;
 
 			timer.Start();
 			while ( !hasRequiredDivisors )
@@ -55,9 +52,9 @@ namespace _0012_Highly_Divisible_Triangle_Number
 				triangularNumber++;
 				triangularNumberValue = TriangularNumbers.GetNthTriangular(triangularNumber);
 
-				divisors = (uint)Factors.GetAllFactors(triangularNumberValue).Length;
+                int divisors = Factors.GetAllFactors(triangularNumberValue).Length;
 
-				if ( divisors > mostDivisors )
+                if ( divisors > mostDivisors )
 				{
 					mostDivisors = divisors;
 				}
@@ -69,7 +66,7 @@ namespace _0012_Highly_Divisible_Triangle_Number
 			}
 			timer.Stop();
 
-			Console.WriteLine( "The first Triangular Number with {0} divisors is ({1}) {2}", 
+			Console.WriteLine( "The first Triangular Number with {0} divisors is ({1}) {2}",
 				divisorsWanted, triangularNumber, triangularNumberValue);
 			Console.WriteLine( timer.Elapsed );
 

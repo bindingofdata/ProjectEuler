@@ -5,9 +5,9 @@ using StaticClasses;
 
 namespace _0003_Largest_Prime_Factor
 {
-    class Program
+    internal static class Program
 	{
-		static void Main(string[] args)
+		private static void Main(string[] args)
 		{
 			/*
 			 * The prime factors of 13195 are 5, 7, 13 and 29.
@@ -18,28 +18,26 @@ namespace _0003_Largest_Prime_Factor
 			Console.WriteLine("------------------------------------------");
 			Console.WriteLine();
 			Console.Write("Enter the number you want the Largest Prime factor of: ");
-			uint original = (uint)Convert.ToInt64(Console.ReadLine());
-			uint factor = original;
-			uint largest = 0;
+			int original = Convert.ToInt32(Console.ReadLine());
+            int largest = 0;
 
-			// Store all primes up to half the supplied number
-			uint[] primes = Primes.GetPrimes( original / 2 );
+            // Store all primes up to half the supplied number
+            int[] primes = Primes.GetPrimes( original / 2 );
 
 			// List to store all the prime factors of the supplied number
-			List<ulong> primeFactors = new List<ulong>();
+			List<int> primeFactors = new List<int>();
 
-			foreach ( uint primeFactor in primeFactors)
-			{
-				if (primeFactor > largest)
-				{
-					largest = primeFactor;
-				}
-			}
+            foreach (int prime in primes)
+                if (original % prime == 0)
+                    primeFactors.Add(prime);
 
-			Console.WriteLine();
+            foreach (int primeFactor in primeFactors)
+                if (primeFactor > largest)
+                    largest = primeFactor;
+
+            Console.WriteLine();
 			Console.WriteLine("The largest factor of {0} is {1}.", original, largest);
 			Console.ReadLine();
-
 		}//end Main
-	}//end Program
+    }//end Program
 }

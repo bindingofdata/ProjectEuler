@@ -8,12 +8,12 @@ namespace HelperClasses.UnitTests
 	public class SequencesTests
 	{
 		[Test]
-		[TestCase((uint)1, new uint[] { 1 })]
-		[TestCase((uint)2, new uint[] { 1, 2 })]
-		[TestCase((uint)10, new uint[] { 1, 2, 3, 5, 8 })]
-		public void GetFibonacciSequenceTo_ValidMaxValue_ReturnsSequenceToMaxValue(uint maxValue, uint[] expectedResult)
+		[TestCase(1, new int[] { 1 })]
+		[TestCase(2, new int[] { 1, 2 })]
+		[TestCase(10, new int[] { 1, 2, 3, 5, 8 })]
+		public void GetFibonacciSequenceTo_ValidMaxValue_ReturnsSequenceToMaxValue(int maxValue, int[] expectedResult)
 		{
-			uint[] results = Sequences.GetFibonacciSequenceTo(maxValue);
+            int[] results = Sequences.GetFibonacciSequenceTo(maxValue);
 
 			Assert.That(results, Is.EquivalentTo(expectedResult));
 		}
@@ -25,12 +25,12 @@ namespace HelperClasses.UnitTests
 		}
 
 		[Test]
-		[TestCase((uint)1, new uint[] { 1 })]
-		[TestCase((uint)2, new uint[] { 1, 2 })]
-		[TestCase((uint)5, new uint[] { 1, 2, 3, 5, 8 })]
-		public void GetNFibonacciNumbers_ValidNumberOfResults_ReturnsRequestedNumberOfValues(uint maxValue, uint[] expectedResult)
+		[TestCase(1, new int[] { 1 })]
+		[TestCase(2, new int[] { 1, 2 })]
+		[TestCase(5, new int[] { 1, 2, 3, 5, 8 })]
+		public void GetNFibonacciNumbers_ValidNumberOfResults_ReturnsRequestedNumberOfValues(int maxValue, int[] expectedResult)
 		{
-			uint[] results = Sequences.GetNFibonacciNumbers(maxValue);
+            int[] results = Sequences.GetNFibonacciNumbers(maxValue);
 
 			Assert.That(results, Is.EquivalentTo(expectedResult));
 		}

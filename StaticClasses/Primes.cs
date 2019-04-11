@@ -9,17 +9,17 @@ namespace StaticClasses
 		/// </summary>
 		/// <param name="maxValue">The max value to get primes up to.</param>
 		/// <returns></returns>
-		public static uint[] GetPrimes( uint maxValue )
+		public static int[] GetPrimes(int maxValue )
 		{
 			if (maxValue < 1 || maxValue >= int.MaxValue)
 				throw new ArgumentOutOfRangeException();
 
-			uint[] allPrimes = CalculateAllPrimes(maxValue);
+            int[] allPrimes = CalculateAllPrimes(maxValue);
 
 			return allPrimes;
 		}//End GetPrimes
 
-		public static bool IsPrime(uint testValue)
+		public static bool IsPrime(int testValue)
 		{
 			// Handle values less than or equal to 3.
 			if (testValue < 2)
@@ -29,8 +29,8 @@ namespace StaticClasses
 			else if (testValue % 2 == 0)
 				return false;
 
-			// Test values greater than 2 and fail if they can be divided evenly
-			uint maxLoopIndex = (uint)Math.Sqrt(testValue);
+            // Test values greater than 2 and fail if they can be divided evenly
+            int maxLoopIndex = (int)Math.Sqrt(testValue);
 
 			for (int i = 3; i < maxLoopIndex; i++)
 			{
@@ -42,32 +42,32 @@ namespace StaticClasses
 			return true;
 		}
 
-		private static uint[] CalculateAllPrimes( uint maxValue )
+		private static int[] CalculateAllPrimes(int maxValue )
 		{
 			maxValue++; //supports using index as value.
 			bool[] calculatePrimes = new bool[maxValue];
 			bool[] storePrimes = new bool[maxValue];
-			uint primeCount = 1;
-			uint[] primes;
+            int primeCount = 1;
+            int[] primes;
 
 			storePrimes[1] = true;
-			for ( uint testInt = 2; testInt < maxValue; testInt++)
+			for (int testInt = 2; testInt < maxValue; testInt++)
 			{
 				if (!calculatePrimes[testInt])
 				{
 					storePrimes[testInt] = true;
 					primeCount++;
-					for ( uint i = testInt; i < maxValue; i += testInt)
+					for (int i = testInt; i < maxValue; i += testInt)
 					{
 						calculatePrimes[i] = true;
 					}
 				}
 			}
 
-			primes = new uint[primeCount];
+			primes = new int[primeCount];
 
-			uint primeIndex = 0;
-			for (uint i = 0; i < maxValue; i++)
+            int primeIndex = 0;
+			for (int i = 0; i < maxValue; i++)
 			{
 				if (storePrimes[i])
 				{
@@ -78,6 +78,5 @@ namespace StaticClasses
 
 			return primes;
 		}
-
     }
 }

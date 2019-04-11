@@ -11,22 +11,22 @@ namespace _0010_Summation_of_Primes
 	{
 		static void Main(string[] args)
 		{
-			/*
+            /*
 			 * The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 			 * 
 			 * Find the sum of all the primes below two million (2000000).
 			 */
-			
-			
-			// max number to check up to and var to hold the sum
-			uint maxTestNumber = 0;
+
+
+            // max number to check up to and var to hold the sum
+            int maxTestNumber = 0;
 			
 			Stopwatch calculationTime = new Stopwatch();
 
 			Console.WriteLine("Add all the Prime numbers below the specified number.");
 			Console.WriteLine();
 			Console.Write("What number would you like to go up to? ");
-			maxTestNumber = uint.Parse(Console.ReadLine());
+			maxTestNumber = int.Parse(Console.ReadLine());
 			calculationTime.Start();
 			//SumPrimesWithList( maxTestNumber );
 			//SumPrimesWithArray( maxTestNumber );
@@ -62,12 +62,12 @@ namespace _0010_Summation_of_Primes
 			Console.WriteLine( "The sum of the Prime numbers is {0}", sumOfPrimes );
 		}
 
-		static public void SumPrimesWithHelperClass( uint number )
+		static public void SumPrimesWithHelperClass( int number )
 		{
-			uint[] primes = Primes.GetPrimes( number );
-			uint sumOfPrimes = 0;
+            int[] primes = Primes.GetPrimes( number );
+            int sumOfPrimes = 0;
 
-			foreach ( uint prime in primes )
+			foreach (int prime in primes )
 			{
 				sumOfPrimes += prime;
 			}

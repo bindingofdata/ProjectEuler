@@ -8,12 +8,12 @@ namespace HelperClasses.UnitTests
 	public class TriangularNumbersTests
 	{
 		[Test]
-		[TestCase((uint)1, (uint)1)]
-		[TestCase((uint)2, (uint)3)]
-		[TestCase((uint)7, (uint)28)]
-		public void GetNthTriangular_ValidValue_ReturnsTriangularNumber( uint triangleToGet, uint expectedResult)
+		[TestCase(1, 1)]
+		[TestCase(2, 3)]
+		[TestCase(7, 28)]
+		public void GetNthTriangular_ValidValue_ReturnsTriangularNumber( int triangleToGet, int expectedResult)
 		{
-			uint result = TriangularNumbers.GetNthTriangular(triangleToGet);
+            int result = TriangularNumbers.GetNthTriangular(triangleToGet);
 
 			Assert.That(result, Is.EqualTo(expectedResult));
 		}
@@ -30,11 +30,11 @@ namespace HelperClasses.UnitTests
 		}
 
 		[Test]
-		[TestCase((uint)21, true)]
-		[TestCase((uint)28, true)]
-		[TestCase((uint)20, false)]
-		[TestCase((uint)27, false)]
-		public void IsTriangular_ValueValue_ReturnsTrueOrFalse(uint testNumber, bool expectedResult)
+		[TestCase(21, true)]
+		[TestCase(28, true)]
+		[TestCase(20, false)]
+		[TestCase(27, false)]
+		public void IsTriangular_ValueValue_ReturnsTrueOrFalse(int testNumber, bool expectedResult)
 		{
 			bool result = TriangularNumbers.IsTriangular(testNumber);
 

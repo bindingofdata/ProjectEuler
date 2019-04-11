@@ -4,7 +4,6 @@ namespace StaticClasses
 {
     public static class Sequences
 	{
-
 		#region Fibonacci
 		/// <summary>
 		/// Returns an array of uints in a Fibonacci sequence with 
@@ -13,16 +12,16 @@ namespace StaticClasses
 		/// </summary>
 		/// <param name="maxNumber">Max value of a Fibonacci number</param>
 		/// <returns>Fibonacci array</returns>
-		public static uint[] GetFibonacciSequenceTo ( uint maxNumber )
+		public static int[] GetFibonacciSequenceTo ( int maxNumber )
 		{
 			if (maxNumber < 1)
 				throw new ArgumentOutOfRangeException();
 			if (maxNumber == 1)
-				return new uint[] { 1 };
+				return new int[] { 1 };
 			else if (maxNumber == 2)
-				return new uint[] { 1, 2 };
+				return new int[] { 1, 2 };
 
-			uint[] tempSequence = new uint[100000000];
+            int[] tempSequence = new int[100_000_000];
 			int sequenceCount = 2;
 			int valueAIndex = 0;
 			int valueBIndex = 1;
@@ -42,7 +41,7 @@ namespace StaticClasses
 				sequenceCount++;
 			}
 
-			uint[] sequence = new uint[sequenceCount];
+            int[] sequence = new int[sequenceCount];
 
 			for (int i = 0; i < sequenceCount; i++)
 			{
@@ -57,16 +56,16 @@ namespace StaticClasses
 		/// </summary>
 		/// <param name="valueCount">Number of items to return</param>
 		/// <returns>An array of N size with a Fibonacci sequence</returns>
-		public static uint[] GetNFibonacciNumbers(uint valueCount)
+		public static int[] GetNFibonacciNumbers(int valueCount)
 		{
 			if (valueCount < 1)
 				throw new ArgumentOutOfRangeException();
 			else if (valueCount == 1)
-				return new uint[] { 1 };
+				return new int[] { 1 };
 			else if (valueCount == 2)
-				return new uint[] { 1, 2 };
+				return new int[] { 1, 2 };
 
-			uint[] sequence = new uint[valueCount];
+            int[] sequence = new int[valueCount];
 			int indexA = 0;
 			int indexB = 1;
 
@@ -83,7 +82,5 @@ namespace StaticClasses
 			return sequence;
 		}
 		#endregion
-
-		
 	}// End Class
 }
