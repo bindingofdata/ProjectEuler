@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StaticClasses\StaticClasses.csproj">
-      <Project>{99f4738c-e2eb-49e5-b974-c5d9af52ead5}</Project>
+      <Project>{787253d9-4dca-4035-bdee-c0c7e51e7537}</Project>
       <Name>StaticClasses</Name>
     </ProjectReference>
   </ItemGroup>

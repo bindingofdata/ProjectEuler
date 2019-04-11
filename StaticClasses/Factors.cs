@@ -4,7 +4,6 @@ namespace StaticClasses
 {
     public static class Factors
     {
-
 		public static uint[] GetAllFactors(uint baseNumber)
 		{
 			if (baseNumber < 1 || baseNumber >= int.MaxValue)
@@ -15,7 +14,7 @@ namespace StaticClasses
 			uint[] primes = GetPrimeFactors(baseNumber);
 			bool[] tmpAllFactors = new bool[halfBase + 1];
 			tmpAllFactors[1] = true;
-			
+
 			uint[] allFactors;
 
 			for (int i = 1; i < primes.Length; i++)
