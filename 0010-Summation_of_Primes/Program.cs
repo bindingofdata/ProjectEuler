@@ -7,29 +7,26 @@ using StaticClasses;
 
 namespace _0010_Summation_of_Primes
 {
-	class Program
+	internal static class Program
 	{
-		static void Main(string[] args)
+		private static void Main(string[] args)
 		{
-            /*
-			 * The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
-			 * 
-			 * Find the sum of all the primes below two million (2000000).
-			 */
-
-
-            // max number to check up to and var to hold the sum
-            int maxTestNumber = 0;
-			
 			Stopwatch calculationTime = new Stopwatch();
 
 			Console.WriteLine("Add all the Prime numbers below the specified number.");
 			Console.WriteLine();
 			Console.Write("What number would you like to go up to? ");
-			maxTestNumber = int.Parse(Console.ReadLine());
+			/*
+			 * The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+			 * 
+			 * Find the sum of all the primes below two million (2000000).
+			 */
+
+			// max number to check up to and var to hold the sum
+			int maxTestNumber = int.Parse(Console.ReadLine());
 			calculationTime.Start();
-			//SumPrimesWithList( maxTestNumber );
-			//SumPrimesWithArray( maxTestNumber );
+			SumPrimesWithList( maxTestNumber );
+			SumPrimesWithArray( maxTestNumber );
 			SumPrimesWithHelperClass( maxTestNumber );
 			calculationTime.Stop();
 			Console.WriteLine( calculationTime.Elapsed );
@@ -37,26 +34,25 @@ namespace _0010_Summation_of_Primes
 			Console.ReadLine();
 		}// end Main()
 
-		static public void SumPrimesWithArray( uint number )
+		static public void SumPrimesWithArray( int number )
 		{
-			uint sumOfPrimes = 0;
-			uint numberOfPrimes = 0;
+			int sumOfPrimes = 0;
+			int numberOfPrimes = 0;
 			bool[] primeArray = new bool[number];
 
-			for ( uint testInt = 2; testInt < primeArray.Count(); testInt++ )
+			for (int testInt = 2; testInt < primeArray.Length; testInt++ )
 			{
 				if ( !primeArray[testInt] )
 				{
 					sumOfPrimes += testInt;
 					numberOfPrimes++;
 					// mark all multiples of testInt as true so they skipped when encountered
-					for ( uint i = testInt; i < primeArray.Count(); i+=testInt )
+					for (int i = testInt; i < primeArray.Length; i+=testInt )
 					{
 						primeArray[i] = true;
 					}
 				}
 			}
-
 
 			Console.WriteLine( "There are {0} Prime numbers below {1}.", numberOfPrimes, number );
 			Console.WriteLine( "The sum of the Prime numbers is {0}", sumOfPrimes );
@@ -76,37 +72,34 @@ namespace _0010_Summation_of_Primes
 			Console.WriteLine( "The sum of the Prime numbers is {0}", sumOfPrimes );
 		}
 
-		static public void SumPrimesWithList( uint number )
+		static public void SumPrimesWithList( int number )
 		{
 			// list to hold primes
-			List<uint> primeNumbers = new List<uint>();
-			uint sumOfPrimes = 0;
-			uint lastPrime = 2;
+			List<int> primeNumbers = new List<int>();
+			int sumOfPrimes = 0;
 			// add 2 as a prime to the list as it will always be present and is the only even prime
 			primeNumbers.Add( 2 );
 
 			// we only need to test odd numbers, so we don't even loop through even ones.
-			for ( uint i = 3; i <= number; i += 2 )
+			for (int i = 3; i <= number; i += 2 )
 			{
 				if ( IsPrimeNumber( i, primeNumbers ) )
 				{
 					primeNumbers.Add( i );
 					//Console.WriteLine( "Added " + i + " to the list of Primes" );
-					lastPrime = i;
 				}
 			}
 
-			foreach ( uint prime in primeNumbers )
+			foreach (int prime in primeNumbers )
 			{
 				sumOfPrimes += prime;
 			}
 
 			Console.WriteLine( "There are {0} Prime numbers below {1}.", primeNumbers.Count, number );
 			Console.WriteLine( "The sum of the Prime numbers is {0}", sumOfPrimes );
-
 		}
 
-		static public bool IsPrimeNumber( uint number, List<uint> primeNumbers)
+		static public bool IsPrimeNumber(int number, List<int> primeNumbers)
 		{
 			// This takes ~9 minutes and 14 seconds to run.
 			//for ( long j = 3; j < number / 2; j += 2 )
@@ -125,7 +118,7 @@ namespace _0010_Summation_of_Primes
 			//}
 
 			// This takes ~2 minutes and 4 seconds to run.
-			foreach ( uint pastPrime in primeNumbers )
+			foreach (int pastPrime in primeNumbers )
 			{
 				if ( number % pastPrime == 0 )
 				{

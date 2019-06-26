@@ -41,8 +41,6 @@ namespace _0002_Even_Fibonacci_numbers
 
 			Console.WriteLine("The total is: {0}", sum);
 			Console.ReadLine();
-
 		}//end Main
-
 	}//end Program
 }
