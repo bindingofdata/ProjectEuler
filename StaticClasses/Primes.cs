@@ -46,20 +46,17 @@ namespace StaticClasses
 		{
 			maxValue++; //supports using index as value.
 			bool[] calculatePrimes = new bool[maxValue];
-			bool[] storePrimes = new bool[maxValue];
-            int primeCount = 1;
+            int primeCount = 0;
             int[] primes;
 
-			storePrimes[1] = true;
 			for (int testInt = 2; testInt < maxValue; testInt++)
 			{
-				if (!calculatePrimes[testInt])
+				if (!calculatePrimes[testInt]) //if the value is false, this is a prime.
 				{
-					storePrimes[testInt] = true;
 					primeCount++;
-					for (int i = testInt; i < maxValue; i += testInt)
+					for (int i = testInt * 2; i < maxValue; i += testInt)
 					{
-						calculatePrimes[i] = true;
+						calculatePrimes[i] = true; // mark all multiples of the prime as true.
 					}
 				}
 			}
@@ -67,12 +64,12 @@ namespace StaticClasses
 			primes = new int[primeCount];
 
             int primeIndex = 0;
-			for (int i = 0; i < maxValue; i++)
+			for (int i = 2; i < calculatePrimes.Length; i++)
 			{
-				if (storePrimes[i])
+				if (!calculatePrimes[i]) // if the value is false, the index is a prime
 				{
 					primes[primeIndex] = i;
-					primeIndex++;
+					primeIndex++; // this ensures we only increment the index of the prime array when we find a prime
 				}
 			}
 
