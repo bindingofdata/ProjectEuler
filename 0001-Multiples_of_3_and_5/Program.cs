@@ -2,12 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
+using BenchmarkDotNet.Reports;
+
 namespace _0001_Multiples_of_3_and_5
 {
     public static class Program
     {
         static void Main(string[] args)
         {
+#if RELEASE
+            Summary summary = BenchmarkRunner.Run<MultiplesOf3And5>();
+#endif
+#if RELEASE == false
             /*
              * If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. 
              * The sum of these multiples is 23.
@@ -27,20 +35,26 @@ namespace _0001_Multiples_of_3_and_5
             int secondNumber = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine();
 
-            //sum = SumOfMultiples(firstNumber, secondNumber);
-            //sum = SumOfMultiplesSieve(firstNumber, secondNumber);
-            sum = SumOfMultiplesLinq(firstNumber, secondNumber);
+            Console.Write("Enter the number to sum multiples up to: ");
+            int multiplyUpTo = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+
+            //sum = SumOfMultiples(firstNumber, secondNumber, multiplyUpTo);
+            sum = SumOfMultiplesSieve(firstNumber, secondNumber, multiplyUpTo);
+            //sum = SumOfMultiplesLinq(firstNumber, secondNumber, multiplyUpTo);
 
             Console.WriteLine("The sum of all multiples is {0}", sum);
             Console.ReadLine();
+#endif
         }
 
-        public static int SumOfMultiples(int firstNumber, int secondNumber)
+        // | SumOfMultiples      | 2,739.0 ns | 22.50 ns | 21.04 ns |
+        public static int SumOfMultiples(int firstNumber, int secondNumber, int multiplyUpTo)
         {
             List<int> multiples = new();
             int sum = 0;
             // This is my original implementation. 
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < multiplyUpTo; i++)
             {
                 // Check for multiples of first and second number.
                 if (i % firstNumber == 0)
@@ -63,32 +77,54 @@ namespace _0001_Multiples_of_3_and_5
             return sum;
         }
 
-        public static int SumOfMultiplesSieve(int firstNumber, int secondNumber)
+        // | SumOfMultiplesSieve |   839.2 ns | 15.39 ns | 14.39 ns |
+        public static int SumOfMultiplesSieve(int firstNumber, int secondNumber, int multiplyUpTo)
         {
             int sum = 0;
             // This is an updated implementation based on the Sieve of Eratosthenes
-            bool[] multiplesOfThree = new bool[1001];
-            bool[] multiplesOfFive = new bool[1001];
+            int maxIndex = multiplyUpTo + 1;
+            bool[] multiplesOfFirst = new bool[maxIndex];
+            bool[] multiplesOfSecond = new bool[maxIndex];
 
-            for (int i = 3; i < multiplesOfThree.Length; i += 3)
-                multiplesOfThree[i] = true;
+            for (int i = firstNumber; i < multiplesOfFirst.Length; i += firstNumber)
+                multiplesOfFirst[i] = true;
 
-            for (int i = 5; i < multiplesOfFive.Length; i += 5)
-                multiplesOfFive[i] = true;
+            for (int i = secondNumber; i < multiplesOfSecond.Length; i += secondNumber)
+                multiplesOfSecond[i] = true;
 
-            for (int i = 1; i < 1001; i++)
-                if (multiplesOfFive[i] || multiplesOfThree[i])
+            for (int i = 1; i < maxIndex; i++)
+                if (multiplesOfSecond[i] || multiplesOfFirst[i])
                     sum += i;
 
             return sum;
         }
 
-        public static int SumOfMultiplesLinq(int firstNumber, int secondNumber)
+        // | SumOfMultiplesLinq  | 2,278.8 ns | 23.05 ns | 21.56 ns |
+        public static int SumOfMultiplesLinq(int firstNumber, int secondNumber, int multiplyUpTo)
         {
             // This is my LINQ implementation
-            return Enumerable.Range(1, 999)
+            return Enumerable.Range(1, multiplyUpTo)
                 .Where(num => num % firstNumber == 0 || num % secondNumber == 0)
                 .Sum();
         }
+    }
+
+    public class MultiplesOf3And5
+    {
+        int firstNumber = 3;
+        int secondNumber = 5;
+        int multiplesUpTo = 1000;
+
+        [Benchmark]
+        public int SumOfMultiples() =>
+            Program.SumOfMultiples(firstNumber, secondNumber, multiplesUpTo);
+
+        [Benchmark]
+        public int SumOfMultiplesSieve() =>
+            Program.SumOfMultiplesSieve(firstNumber, secondNumber, multiplesUpTo);
+
+        [Benchmark]
+        public int SumOfMultiplesLinq() =>
+            Program.SumOfMultiplesLinq(firstNumber, secondNumber, multiplesUpTo);
     }
 }
