@@ -15,7 +15,7 @@ namespace HelperClasses.UnitTests
         [InlineData(7, 28)]
         public void GetNthTriangular_ValidValue_ReturnsTriangularNumber( int triangleToGet, int expectedResult)
         {
-            int result = TriangularNumbers.GetNthTriangular(triangleToGet);
+            int result = triangleToGet.GetNthTriangular();
 
             result.Should().Be(expectedResult);
         }
@@ -26,7 +26,7 @@ namespace HelperClasses.UnitTests
         [InlineData(25, 28)]
         public void GetCLosestTriangular_ValidValue_ReturnsClosestTriangular( int baseNumber, int expectedResult )
         {
-            int result = TriangularNumbers.GetClosestTriangular(baseNumber);
+            int result = baseNumber.GetClosestTriangular();
 
             result.Should().Be(expectedResult);
         }
@@ -38,7 +38,7 @@ namespace HelperClasses.UnitTests
         //[InlineData(27, false)]
         public void IsTriangular_ValueValue_ReturnsTrueOrFalse(int testNumber, bool expectedResult)
         {
-            bool result = TriangularNumbers.IsTriangular(testNumber);
+            bool result = testNumber.IsTriangular();
 
             result.Should().Be(expectedResult);
         }

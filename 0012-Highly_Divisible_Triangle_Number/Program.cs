@@ -50,7 +50,7 @@ namespace _0012_Highly_Divisible_Triangle_Number
 			while ( !hasRequiredDivisors )
 			{
 				triangularNumber++;
-				triangularNumberValue = TriangularNumbers.GetNthTriangular(triangularNumber);
+				triangularNumberValue = triangularNumber.GetNthTriangular();
 
                 int divisors = triangularNumberValue.GetAllFactors().Length;
 

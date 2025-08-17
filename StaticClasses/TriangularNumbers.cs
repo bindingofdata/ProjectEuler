@@ -4,12 +4,12 @@ namespace StaticClasses
 {
     public static class TriangularNumbers
     {
-        public static int GetNthTriangular(int nthValue)
+        public static int GetNthTriangular(this int nthValue)
         {
             return (nthValue * (nthValue + 1)) / 2;
         }
 
-        public static int GetClosestTriangular(int number)
+        public static int GetClosestTriangular(this int number)
         {
             int m = (int)(0.5 * (-1 + Math.Sqrt(1 + (8 * number))));
             int tan0 = ((m * m) + m) / 2;
@@ -18,7 +18,7 @@ namespace StaticClasses
             return Math.Abs(number - tan0) > Math.Abs(number - tan1) ? tan1 : tan0;
         }
 
-        public static bool IsTriangular(int testNumber)
+        public static bool IsTriangular(this int testNumber)
         {
             // TODO: Implement this
             return true;
