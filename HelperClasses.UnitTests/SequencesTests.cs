@@ -1,44 +1,50 @@
 ﻿using System;
-using NUnit.Framework;
+
+using FluentAssertions;
 using StaticClasses;
+
+using Xunit;
 
 namespace HelperClasses.UnitTests
 {
-	[TestFixture]
-	public class SequencesTests
-	{
-		[Test]
-		[TestCase(1, new int[] { 1 })]
-		[TestCase(2, new int[] { 1, 2 })]
-		[TestCase(10, new int[] { 1, 2, 3, 5, 8 })]
-		public void GetFibonacciSequenceTo_ValidMaxValue_ReturnsSequenceToMaxValue(int maxValue, int[] expectedResult)
-		{
+    public class SequencesTests
+    {
+        [Theory]
+        [InlineData(1, new int[] { 1 })]
+        [InlineData(2, new int[] { 1, 2 })]
+        [InlineData(10, new int[] { 1, 2, 3, 5, 8 })]
+        public void GetFibonacciSequenceTo_WithValidMaxValue_ReturnsExpectedSequence(int maxValue, int[] expectedResult)
+        {
             int[] results = Sequences.GetFibonacciSequenceTo(maxValue);
 
-			Assert.That(results, Is.EquivalentTo(expectedResult));
-		}
+            results.Should().ContainInConsecutiveOrder(expectedResult);
+        }
 
-		[Test]
-		public void GetFibonacciSequenceTo_InvalidMaxValue_ThrowsArgumentOutOfRangeException()
-		{
-			Assert.Throws<ArgumentOutOfRangeException>(() => Sequences.GetFibonacciSequenceTo(0));
-		}
+        [Fact]
+        public void GetFibonacciSequenceTo_WithZeroInput_ThrowsArgumentOutOfRangeException()
+        {
+            Action action = () => Sequences.GetFibonacciSequenceTo(0);
 
-		[Test]
-		[TestCase(1, new int[] { 1 })]
-		[TestCase(2, new int[] { 1, 2 })]
-		[TestCase(5, new int[] { 1, 2, 3, 5, 8 })]
-		public void GetNFibonacciNumbers_ValidNumberOfResults_ReturnsRequestedNumberOfValues(int maxValue, int[] expectedResult)
-		{
+            action.Should().Throw<ArgumentOutOfRangeException>();
+        }
+
+        [Theory]
+        [InlineData(1, new int[] { 1 })]
+        [InlineData(2, new int[] { 1, 2 })]
+        [InlineData(5, new int[] { 1, 2, 3, 5, 8 })]
+        public void GetNFibonacciNumbers_WithValidCount_ReturnsExpectedSequence(int maxValue, int[] expectedResult)
+        {
             int[] results = Sequences.GetNFibonacciNumbers(maxValue);
 
-			Assert.That(results, Is.EquivalentTo(expectedResult));
-		}
+            results.Should().ContainInConsecutiveOrder(expectedResult);
+        }
 
-		[Test]
-		public void GetNFibonacciNumbers_InvalidNumberOfResults_ReturnsRequestedNumberOfValues()
-		{
-			Assert.Throws<ArgumentOutOfRangeException>(() => Sequences.GetFibonacciSequenceTo(0));
-		}
-	}
+        [Fact]
+        public void GetNFibonacciNumbers_WithZeroInput_ThrowsArgumentOutOfRangeException()
+        {
+            Action action = () => Sequences.GetFibonacciSequenceTo(0);
+
+            action.Should().Throw<ArgumentOutOfRangeException>();
+        }
+    }
 }

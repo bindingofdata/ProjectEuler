@@ -12,7 +12,7 @@ namespace StaticClasses
 		/// </summary>
 		/// <param name="maxNumber">Max value of a Fibonacci number</param>
 		/// <returns>Fibonacci array</returns>
-		public static int[] GetFibonacciSequenceTo ( int maxNumber )
+		public static int[] GetFibonacciSequenceTo( int maxNumber )
 		{
 			if (maxNumber < 1)
 				throw new ArgumentOutOfRangeException();

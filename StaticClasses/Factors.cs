@@ -17,7 +17,7 @@ namespace StaticClasses
 
             int[] allFactors;
 
-			for (int i = 1; i < primes.Length; i++)
+			for (int i = 0; i < primes.Length; i++)
 			{
 				for (int j = primes[i]; j <= halfBase; j += primes[i])
 				{

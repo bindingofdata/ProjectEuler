@@ -1,47 +1,51 @@
 ﻿using System;
-using NUnit.Framework;
+
+using FluentAssertions;
 using StaticClasses;
+
+using Xunit;
 
 namespace HelperClasses.UnitTests
 {
-	[TestFixture]
-	public class PrimesTests
-	{
-		[Test]
-		public void GetPrimes_ValidMaxValue_ReturnsCorrectArrayOfValues()
-		{
-			int[] result = Primes.GetPrimes(5);
-
-			Assert.That(result, Is.EquivalentTo(new int[] { 1, 2, 3, 5 }));
-		}
-
-		[Test]
-		public void GetPrimes_ValidMaxValue_ReturnsCorrectSizedArray()
-		{
+    public class PrimesTests
+    {
+        [Fact]
+        public void GetPrimes_WithMaxValueFive_ReturnsPrimesUpToFive()
+        {
             int[] result = Primes.GetPrimes(5);
 
-			Assert.That(result.Length, Is.EqualTo(4));
-		}
+            result.Should().ContainInConsecutiveOrder([1, 2, 3, 5]);
+        }
 
-		[Test]
-		[TestCase(0)]
-		[TestCase(int.MaxValue)]
-		public void GetPrimes_InvalidValues_ThrowsArgumentOutOfRangeException(int maxValue)
-		{
-			Assert.Throws<ArgumentOutOfRangeException>(() => Primes.GetPrimes(maxValue));
-		}
+        [Fact]
+        public void GetPrimes_WithMaxValueFive_ReturnsCountOfFour()
+        {
+            int[] result = Primes.GetPrimes(5);
 
-		[Test]
-		[TestCase(1, false)]
-		[TestCase(2, true)]
-		[TestCase(3, true)]
-		[TestCase(97, true)]
-		[TestCase(98, false)]
-		public void IsPrime_ValidValues_ReturnsIfValueIsPrime(int testValue, bool expectedResult)
-		{
-			bool result = Primes.IsPrime(testValue);
+            result.Should().HaveCount(4);
+        }
 
-			Assert.That(result, Is.EqualTo(expectedResult));
-		}
-	}
+        [Theory]
+        [InlineData(0)]
+        [InlineData(int.MaxValue)]
+        public void GetPrimes_WithZeroOrMaxInt_ThrowsArgumentOutOfRangeException(int maxValue)
+        {
+            Action action = () => Primes.GetPrimes(maxValue);
+
+            action.Should().Throw<ArgumentOutOfRangeException>();
+        }
+
+        [Theory]
+        [InlineData(1, true)]
+        [InlineData(2, true)]
+        [InlineData(3, true)]
+        [InlineData(97, true)]
+        [InlineData(98, false)]
+        public void IsPrime_WithVariousInputs_ReturnsExpectedBoolean(int testValue, bool expectedResult)
+        {
+            bool result = Primes.IsPrime(testValue);
+
+            result.Should().Be(expectedResult);
+        }
+    }
 }
