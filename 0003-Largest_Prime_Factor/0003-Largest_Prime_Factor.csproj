@@ -11,7 +11,7 @@
     <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StaticClasses\StaticClasses.csproj" />
+    <ProjectReference Include="..\StaticClasses\ExtensionClasses.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />

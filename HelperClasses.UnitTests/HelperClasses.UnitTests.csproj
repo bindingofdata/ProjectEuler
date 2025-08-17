@@ -18,7 +18,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <ProjectReference Include="..\StaticClasses\StaticClasses.csproj" />
+    <ProjectReference Include="..\StaticClasses\ExtensionClasses.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="8.6.0" />

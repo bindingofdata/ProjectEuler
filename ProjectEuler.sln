@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36408.4 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0001-Multiples_of_3_and_5", "0001-Multiples_of_3_and_5\0001-Multiples_of_3_and_5.csproj", "{800F41A9-2075-42AD-8BE5-25FD9DB1E923}"
 EndProject
@@ -39,7 +39,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "Tester\Tester.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperClasses.UnitTests", "HelperClasses.UnitTests\HelperClasses.UnitTests.csproj", "{D447BA74-6009-4C47-8316-E3160596D4F2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StaticClasses", "StaticClasses\StaticClasses.csproj", "{787253D9-4DCA-4035-BDEE-C0C7E51E7537}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtensionClasses", "StaticClasses\ExtensionClasses.csproj", "{787253D9-4DCA-4035-BDEE-C0C7E51E7537}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
