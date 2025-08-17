@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StaticClasses
+namespace ExtensionClasses
 {
     public static class Primes
     {

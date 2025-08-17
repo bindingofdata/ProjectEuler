@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using StaticClasses;
+using ExtensionClasses;
 
 namespace _0012_Highly_Divisible_Triangle_Number
 {

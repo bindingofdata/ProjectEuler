@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-using StaticClasses;
+using ExtensionClasses;
 
 namespace _0002_Even_Fibonacci_numbers
 {

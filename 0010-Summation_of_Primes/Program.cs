@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-using StaticClasses;
+using ExtensionClasses;
 
 namespace _0010_Summation_of_Primes
 {

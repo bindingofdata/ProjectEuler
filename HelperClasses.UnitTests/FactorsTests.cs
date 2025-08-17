@@ -1,7 +1,7 @@
 ﻿using System;
 
 using FluentAssertions;
-using StaticClasses;
+using ExtensionClasses;
 
 using Xunit;
 

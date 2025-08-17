@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-using StaticClasses;
+using ExtensionClasses;
 
 namespace _0003_Largest_Prime_Factor
 {
