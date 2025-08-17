@@ -12,7 +12,7 @@ namespace HelperClasses.UnitTests
         [Fact]
         public void GetPrimes_WithMaxValueFive_ReturnsPrimesUpToFive()
         {
-            int[] result = Primes.GetPrimes(5);
+            int[] result = 5.GetPrimes();
 
             result.Should().ContainInConsecutiveOrder([1, 2, 3, 5]);
         }
@@ -20,7 +20,7 @@ namespace HelperClasses.UnitTests
         [Fact]
         public void GetPrimes_WithMaxValueFive_ReturnsCountOfFour()
         {
-            int[] result = Primes.GetPrimes(5);
+            int[] result = 5.GetPrimes();
 
             result.Should().HaveCount(4);
         }
@@ -30,7 +30,7 @@ namespace HelperClasses.UnitTests
         [InlineData(int.MaxValue)]
         public void GetPrimes_WithZeroOrMaxInt_ThrowsArgumentOutOfRangeException(int maxValue)
         {
-            Action action = () => Primes.GetPrimes(maxValue);
+            Action action = () => maxValue.GetPrimes();
 
             action.Should().Throw<ArgumentOutOfRangeException>();
         }
@@ -43,7 +43,7 @@ namespace HelperClasses.UnitTests
         [InlineData(98, false)]
         public void IsPrime_WithVariousInputs_ReturnsExpectedBoolean(int testValue, bool expectedResult)
         {
-            bool result = Primes.IsPrime(testValue);
+            bool result = testValue.IsPrime();
 
             result.Should().Be(expectedResult);
         }

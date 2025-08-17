@@ -60,7 +60,7 @@ namespace _0010_Summation_of_Primes
 
 		static public void SumPrimesWithHelperClass( int number )
 		{
-            int[] primes = Primes.GetPrimes( number );
+            int[] primes = number.GetPrimes();
             int sumOfPrimes = 0;
 
 			foreach (int prime in primes )

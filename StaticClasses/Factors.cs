@@ -56,7 +56,7 @@ namespace StaticClasses
             int maxTestValue = baseNumber / 2;
 
 			int totalFactors = 0;
-            int[] primesToTest = Primes.GetPrimes( maxTestValue );
+            int[] primesToTest = maxTestValue.GetPrimes();
             int[] tmpPrimeFactors = new int[primesToTest.Length];
             int[] primeFactors;
 

@@ -9,15 +9,15 @@ namespace StaticClasses
         /// </summary>
         /// <param name="maxValue">The max value to get primes up to.</param>
         /// <returns></returns>
-        public static int[] GetPrimes(int maxValue )
+        public static int[] GetPrimes(this int maxValue )
         {
             if (maxValue < 1 || maxValue >= int.MaxValue)
                 throw new ArgumentOutOfRangeException();
 
-            return CalculateAllPrimes(maxValue);
+            return maxValue.CalculateAllPrimes();
         }//End GetPrimes
 
-        public static bool IsPrime(int testValue)
+        public static bool IsPrime(this int testValue)
         {
             // Handle values less than or equal to 3.
             if (testValue < 1)
@@ -40,7 +40,7 @@ namespace StaticClasses
             return true;
         }
 
-        private static int[] CalculateAllPrimes(int maxValue )
+        private static int[] CalculateAllPrimes(this int maxValue )
         {
             maxValue++; //supports using index as value.
             bool[] calculatePrimes = new bool[maxValue];
