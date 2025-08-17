@@ -4,7 +4,7 @@ namespace StaticClasses
 {
     public static class Factors
     {
-		public static int[] GetAllFactors(int baseNumber)
+		public static int[] GetAllFactors(this int baseNumber)
 		{
 			if (baseNumber < 1 || baseNumber >= int.MaxValue)
 				throw new ArgumentOutOfRangeException();
@@ -48,7 +48,7 @@ namespace StaticClasses
 			return allFactors;
 		}// end GetAllFactors
 
-		public static int[] GetPrimeFactors(int baseNumber )
+		public static int[] GetPrimeFactors(this int baseNumber )
 		{
 			if (baseNumber < 1 || baseNumber >= int.MaxValue)
 				throw new ArgumentOutOfRangeException();

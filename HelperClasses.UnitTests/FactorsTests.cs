@@ -14,7 +14,7 @@ namespace HelperClasses.UnitTests
         [InlineData(100, new int[] { 1, 2, 4, 5, 10, 20, 25, 50, 100 })]
         public void GetAllFactors_WithValidInput_ReturnsExpectedFactors(int baseNumber, int[] expectedResult)
         {
-            int[] results = Factors.GetAllFactors(baseNumber);
+            int[] results = baseNumber.GetAllFactors();
 
             results.Should().ContainInConsecutiveOrder(expectedResult);
         }
@@ -22,7 +22,7 @@ namespace HelperClasses.UnitTests
         [Fact]
         public void GetAllFactors_WithValidInput_ReturnsCorrectCount()
         {
-            int[] results = Factors.GetAllFactors(10);
+            int[] results = 10.GetAllFactors();
 
             results.Should().HaveCount(4);
         }
@@ -30,7 +30,7 @@ namespace HelperClasses.UnitTests
         [Fact]
         public void GetAllFactors_WithZeroInput_ThrowsArgumentOutOfRangeException()
         {
-            Action action = () => Factors.GetAllFactors(0);
+            Action action = () => 0.GetAllFactors();
 
             action.Should().Throw<ArgumentOutOfRangeException>();
         }
@@ -38,7 +38,7 @@ namespace HelperClasses.UnitTests
         [Fact]
         public void GetPrimeFactors_WithValidInput_ReturnsExpectedPrimeFactors()
         {
-            int[] results = Factors.GetPrimeFactors(10);
+            int[] results = 10.GetPrimeFactors();
 
             results.Should().ContainInConsecutiveOrder([1, 2, 5]);
         }
@@ -46,7 +46,7 @@ namespace HelperClasses.UnitTests
         [Fact]
         public void GetPrimeFactors_WithValidInput_ReturnsCorrectCount()
         {
-            int[] results = Factors.GetPrimeFactors(10);
+            int[] results = 10.GetPrimeFactors();
 
             results.Should().HaveCount(3);
         }
@@ -54,7 +54,7 @@ namespace HelperClasses.UnitTests
         [Fact]
         public void GetPrimeFactors_WithZeroInput_ThrowsArgumentOutOfRangeException()
         {
-            Action action = () => Factors.GetPrimeFactors(0);
+            Action action = () => 0.GetPrimeFactors();
 
             action.Should().Throw<ArgumentOutOfRangeException>();
         }

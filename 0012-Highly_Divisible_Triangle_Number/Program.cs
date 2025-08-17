@@ -52,7 +52,7 @@ namespace _0012_Highly_Divisible_Triangle_Number
 				triangularNumber++;
 				triangularNumberValue = TriangularNumbers.GetNthTriangular(triangularNumber);
 
-                int divisors = Factors.GetAllFactors(triangularNumberValue).Length;
+                int divisors = triangularNumberValue.GetAllFactors().Length;
 
                 if ( divisors > mostDivisors )
 				{
