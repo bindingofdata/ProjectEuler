@@ -15,7 +15,7 @@ namespace HelperClasses.UnitTests
         [InlineData(10, new int[] { 1, 2, 3, 5, 8 })]
         public void GetFibonacciSequenceTo_WithValidMaxValue_ReturnsExpectedSequence(int maxValue, int[] expectedResult)
         {
-            int[] results = Sequences.GetFibonacciSequenceTo(maxValue);
+            int[] results = maxValue.GetFibonacciSequenceTo();
 
             results.Should().ContainInConsecutiveOrder(expectedResult);
         }
@@ -23,7 +23,7 @@ namespace HelperClasses.UnitTests
         [Fact]
         public void GetFibonacciSequenceTo_WithZeroInput_ThrowsArgumentOutOfRangeException()
         {
-            Action action = () => Sequences.GetFibonacciSequenceTo(0);
+            Action action = () => 0.GetFibonacciSequenceTo();
 
             action.Should().Throw<ArgumentOutOfRangeException>();
         }
@@ -34,7 +34,7 @@ namespace HelperClasses.UnitTests
         [InlineData(5, new int[] { 1, 2, 3, 5, 8 })]
         public void GetNFibonacciNumbers_WithValidCount_ReturnsExpectedSequence(int maxValue, int[] expectedResult)
         {
-            int[] results = Sequences.GetNFibonacciNumbers(maxValue);
+            int[] results = maxValue.GetNFibonacciNumbers();
 
             results.Should().ContainInConsecutiveOrder(expectedResult);
         }
@@ -42,7 +42,7 @@ namespace HelperClasses.UnitTests
         [Fact]
         public void GetNFibonacciNumbers_WithZeroInput_ThrowsArgumentOutOfRangeException()
         {
-            Action action = () => Sequences.GetFibonacciSequenceTo(0);
+            Action action = () => 0.GetFibonacciSequenceTo();
 
             action.Should().Throw<ArgumentOutOfRangeException>();
         }

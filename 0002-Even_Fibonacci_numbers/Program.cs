@@ -21,7 +21,7 @@ namespace _0002_Even_Fibonacci_numbers
 			const int MAX = 4000000;
 
 			timer.Start();
-			int[] numberSequence = Sequences.GetFibonacciSequenceTo( MAX );
+			int[] numberSequence = MAX.GetFibonacciSequenceTo();
 			timer.Stop();
 
 			Console.WriteLine("Fibonacci Sequence generation time: {0}", timer.Elapsed);
